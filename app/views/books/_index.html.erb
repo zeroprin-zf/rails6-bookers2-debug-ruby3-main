@@ -19,16 +19,19 @@
           <td>
             <%= link_to book_favorites_path(book), method: :delete do %>
             ♥<%= book.favorites.count %>いいね
+            <td>
+            コメント数: <%= book.book_comments.count %><!--なぜいけた-->
+            </td>
             <% end %>
           </td>
           <% else %>
           <td>
             <%= link_to book_favorites_path(book), method: :post do %>
             ♡<%= book.favorites.count %> いいね
-            <% end %>
-          </td>
-          <td>
+            <td>
             コメント数: <%= book.book_comments.count %><!--なぜいけた-->
+            </td>
+            <% end %>
           </td>
          <% end %>
       </tr>
