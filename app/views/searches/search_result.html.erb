@@ -1,23 +1,41 @@
-<% if @range == "User" %>
- <h2>Users search for "<%= @users.name %>"</h2>
-<% else %>
- <h2>Books search for "<%= @books.title %>"</h2>
-<% end %>
+<h2>Results index</h2>
+<!--% if @range == "User" %>
+ <h2>Users search for "<!%= @users.name %>"</h2>
+<!% else %>
+ <h2>Books search for "<!%= @books.title %>"</h2>
+<!% end % ここを通るようにしたい-->
 
 <table class="table table-hover table-inverse">
   <% if @range == "User" %>
    <tbody>
      <% @users.each do |user| %>
+    <thead>
       <tr>
-        <td><%= user.name %></td>
+        <th>image</th>
+        <th>name</th>
+        <!--th colspan="3"></th-->
+      </tr>
+    </thead>
+      <tr>
+        <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+        <td><%= link_to user.name, user %></td>
       </tr>
      <% end %>
    </tbody>
   <% else %>
    <tbody>
      <% @books.each do |book| %>
+     <thead>
       <tr>
-        <td><%= book.title %></td>
+        <th></th>
+        <th>Title</th>
+        <th>Opinion</th>
+        <!--th colspan="3"></th-->
+      </tr>
+     </thead>
+      <tr>
+        <td><%= image_tag book.get_profile_image, size: '50x50' %></td><!--ここに入る画像は何？本の画像？プロフィール画像？-->
+        <td><%= link_to book.title, book %></td>
         <td><%= book.body %></td>
       </tr>
      <% end %>
@@ -25,4 +43,3 @@
   <% end %>
 </table>
 
-<!--こいつを見つけられてない-->
