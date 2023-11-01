@@ -13,7 +13,7 @@ class SearchesController < ApplicationController
       render "/searches/search_result"
     end
   end
-  
-  
+
+
 end
 #looksメソッドで検索内容を取得。変数に代入
