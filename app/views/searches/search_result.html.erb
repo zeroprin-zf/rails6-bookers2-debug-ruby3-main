@@ -1,9 +1,9 @@
-<h2>Results index</h2>
-<!--% if @range == "User" %>
- <h2>Users search for "<!%= @users.name %>"</h2>
-<!% else %>
- <h2>Books search for "<!%= @books.title %>"</h2>
-<!% end % ここを通るようにしたい-->
+<!--h2>Results index</h2-->
+<% if @range == "User" %>
+ <h2>Users search for "<%= @word %>"</h2>
+<% else %>
+ <h2>Books search for "<%= @word %>"</h2>
+<% end %>
 
 <table class="table table-hover table-inverse">
   <% if @range == "User" %>
