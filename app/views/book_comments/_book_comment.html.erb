@@ -4,7 +4,7 @@
    <tr>
      <td>
        <%= image_tag book.user.get_profile_image, size:"100x100" %><br>
-       <%= link_to book_comment.user.name, remote: true %> <!--showページへのpathいるかも-->
+       <%= link_to book_comment.user.name, user_path(book_comment.user.id)%> <!--showページへのpathいるかも-->
      </td>
      <td><%= book_comment.comment %></td>
      <td>
