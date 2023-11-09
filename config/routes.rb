@@ -14,10 +14,15 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
-  end
+    member do
+      get :follows, :followers
+    end
+      resource :relationships, only: [:create, :destroy]
+    end
   root to: "homes#top"
   get "home/about"=>"homes#about"
-
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show]
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
